@@ -72,6 +72,6 @@ KEY INSIGHTS
 
 FILES INCLUDED
 
-E-Commerce Customer churn db.sql – Table creation and sample data insertion.
-ecomm.sql – Cleaned and transformed dataset.
+social_media_engagement_5000.csv
+Social-Media-Engagement-Analysis.ipynb
 README.md – Project description.
