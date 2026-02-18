@@ -28,37 +28,48 @@ STEPS FOLLOWED
 
 Data Cleaning
 
-Imputed missing values (mean for numeric columns, mode for categorical).
-Removed outliers in WarehouseToHome (>100 km).
-Standardized categorical values (e.g., “COD” → “Cash on Delivery”).
-Data Transformation
-
-Renamed inconsistent columns (PreferedOrderCat → PreferredOrderCat).
-Created derived fields:
-ComplaintReceived (Yes/No)
-ChurnStatus (Active/Churned)
-Dropped redundant columns (Churn, Complain).
-Data Exploration & Analysis
-
-Count of churned vs active customers.
-Average tenure & cashback of churned customers.
-Churn breakdown by complaints, city tier, and preferred order category.
-Preferred payment mode among active customers.
-Segmentation by marital status, warehouse distance, and satisfaction score.
-Top 3 order categories by average cashback.
-Categorization of customers by warehouse distance (Very Close, Close, Moderate, Far).
-Relational Table Design
-
-Created customer_returns table to track refund behavior.
-Joined with customer data to analyze churned customers with complaints and returns.
+1. Load & Inspect Data  
+- Import dataset, check data types, missing values, duplicates.  
+- Convert posted_at to datetime.   
+2. Clean & Prepare
+- Handle missing values.  
+- Standardize categorical fields (gender, country, device_type, post_type).  
+- Remove duplicates by post_id.
+3. Feature Engineering
+- Compute engagement rate = (likes+comments+shares)/impression_count.
+- Extract posting time features (day, hour).
+4. Analysis & Visualization
+- Engagement by demographics (age, gender, country).
+- Compare verified vs. non-verified (is_verified).
+- Trends by post_type, device_type, and posting time.
+- Correlation between follower_count, impression_count, and engagement.
+5. Insights & Reporting
+- Identify top-performing content types.
+- Highlight demographic and device trends.
+- Recommend best posting strategies.
+ 
+ 
 KEY INSIGHTS
 
-Customers with complaints showed a significantly higher churn rate.
-City Tier‑1 had the highest churn in Laptop & Accessory category.
-Credit Card was the most preferred payment mode among active customers.
-Single customers preferring mobile phones showed higher order amount hikes.
-Top cashback categories: Electronics, Fashion, and Groceries.
-Warehouse distance strongly correlated with churn — farther customers churned more.
+1. Engagement Drivers  
+- Posts with higher likes, comments, shares, and watch time correlate strongly with higher engagement rate.  
+- Certain post types (e.g., videos) and categories consistently outperform others.  
+2. Audience Demographics  
+- Age and gender groups show different engagement patterns (e.g., younger users may engage more with short videos).  
+- Country-level trends highlight regional preferences in content type and sentiment.  
+3. Account & Content Factors  
+- Verified accounts (is_verified) often achieve higher impressions and engagement.  
+- Follower count positively impacts reach, but engagement rate depends more on content quality.  
+- Posts with positive sentiment and relevant hashtags tend to drive stronger interaction.  
+4. Timing & Devices  
+- Engagement varies by posting time (day of week, hour of day).  
+- Device type analysis shows whether mobile or desktop users interact more deeply.  
+5 Performance Correlations  
+- Strong link between impression_count and engagement, moderated by content type.  
+- Watch time is a key predictor of meaningful engagement for video posts.  
+
+
+
 FILES INCLUDED
 
 E-Commerce Customer churn db.sql – Table creation and sample data insertion.
